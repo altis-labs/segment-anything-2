@@ -45,6 +45,8 @@ def process_directories(root_dir):
 
                                 # Convert the raw image into a JPEG and save it
                                 img = Image.fromarray(raw_image)
+                                if img.mode != 'RGB':
+                                    img = img.convert('RGB')
                                 jpg_filename = os.path.join(video_dir, f"{slice_dir}.jpg")
                                 img.save(jpg_filename)
                                 print(f"Saved {jpg_filename}")
