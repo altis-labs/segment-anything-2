@@ -42,6 +42,7 @@ def process_directories(root_dir):
                                 # Load the .npz file
                                 data = np.load(npz_file)
                                 raw_image = data['arr_0']  # Assuming the array is stored under 'arr_0'
+                                raw_image = (np.clip(raw_image,-1350, 150) + 1350) / 1500.
 
                                 # Convert the raw image into a JPEG and save it
                                 img = Image.fromarray(raw_image)
