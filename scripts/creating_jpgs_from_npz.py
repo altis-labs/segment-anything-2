@@ -42,9 +42,9 @@ def process_directories(root_dir):
                                 # Load the .npz file
                                 data = np.load(npz_file)
                                 raw_image = data['arr_0']  # Assuming the array is stored under 'arr_0'
-                                print(f"BEFORE: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
+                                # print(f"BEFORE: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
                                 raw_image = (np.clip(raw_image, a_min=-1350, a_max=150) + 1350) / 1500 * 255
-                                print(f"AFTER: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
+                                # print(f"AFTER: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
 
                                 # Convert the raw image into a JPEG and save it
                                 img = Image.fromarray(raw_image)
@@ -52,7 +52,7 @@ def process_directories(root_dir):
                                     img = img.convert('RGB')
                                 jpg_filename = os.path.join(video_dir, f"{slice_dir}.jpg")
                                 img.save(jpg_filename)
-                                #print(f"Saved {jpg_filename}")
+                                # print(f"Saved {jpg_filename}")
 
 if __name__ == '__main__':
     root_directory = '/home/ubuntu/segment-anything-2/data'  # Replace with your actual root directory path
