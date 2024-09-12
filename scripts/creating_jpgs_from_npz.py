@@ -43,7 +43,7 @@ def process_directories(root_dir):
                                 data = np.load(npz_file)
                                 raw_image = data['arr_0']  # Assuming the array is stored under 'arr_0'
                                 print(f"BEFORE: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
-                                raw_image = (np.clip(raw_image, a_min=-1350, a_max=150) + 1350) / 1500.
+                                raw_image = (np.clip(raw_image, a_min=-1350, a_max=150) + 1350) / 1500 * 255
                                 print(f"AFTER: min: {np.min(raw_image)} / max: {np.max(raw_image)}")
 
                                 # Convert the raw image into a JPEG and save it
