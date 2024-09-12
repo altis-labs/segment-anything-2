@@ -24,7 +24,7 @@ def process_directories(root_dir):
 
                 if not os.path.exists(converted_npz_dir):
                     # Delete the patient_id/study_uid/series_uid directory if 'converted_npz' does not exist
-                    print(f"Deleting directory: {series_dir}")
+                    # print(f"Deleting directory: {series_dir}")
                     shutil.rmtree(series_dir)
                 else:
                     # Create 'video' directory next to 'converted_npz' if it exists
@@ -49,7 +49,7 @@ def process_directories(root_dir):
                                     img = img.convert('RGB')
                                 jpg_filename = os.path.join(video_dir, f"{slice_dir}.jpg")
                                 img.save(jpg_filename)
-                                print(f"Saved {jpg_filename}")
+                                #print(f"Saved {jpg_filename}")
 
 if __name__ == '__main__':
     root_directory = '/home/ubuntu/segment-anything-2/data'  # Replace with your actual root directory path
